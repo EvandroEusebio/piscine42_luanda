@@ -1,0 +1,42 @@
+
+
+#include <stdio.h>
+
+char	ft_strcapitalize(char *str)
+{
+	int	i;
+	int cap = 0;
+	int tmp = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+	    if(!(str[i] >= 'a' && str[i] <= 'z')){
+	        i++;
+	    }
+	   
+		else if ((str[i] >= 'a' && str[i] <= 'z'))
+		{
+		    
+		    if(cap == 0){
+		        str[i] = str[i] - 32;
+		        cap++;
+		    }else if(!((str[tmp] >= 'a' && str[tmp] <= 'z') || (str[tmp] >= 'A' && str[tmp] <= 'Z') || (str[tmp] >= '0' && str[tmp] <= '9'))){
+		        str[i] = str[i] - 32;
+		    }
+		    i++;
+		    
+		    
+		}
+		
+		tmp = i - 1;
+	}
+	return str;
+}
+
+int main(void){
+	 char a[] = "oi, tudo bem? 42palavras a quarenta-e-duas; cinquenta+e+um";
+
+    ft_strcapitalize(a);  
+    printf("%s\n", a);       // Imprime a string convertida
+    return 0;
+}
